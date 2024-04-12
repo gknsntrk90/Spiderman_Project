@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  
+  font-family: 'Electrolize', sans-serif;
+}
+
+.container{
+    background-color: black;
+    color: white;
+}
+
+
+
+
+
+
+
+/*! NAVBAR START */
+.navbar {
+  background-color: #000;
+  height: 60px;
+  color: white;
+  position: sticky;
+  top: 0;
+  /***bu kod ile nav barımız üstte kalacak sayfa aşağı hareket ettikçe ve alttan gelen fotoğrafların altında kaybolmayacak***/
+  z-index: 1;
+}
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 50px;
+}
+.logo{
+    color: rgb(255, 70, 70);
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+.menu-list {
+  display: flex;
+  list-style: none;
+  /*! column-gap: ile her bir elemanın arasını açabiliriz */
+  column-gap: 30px;
+  padding: 0;
+}
+.menu-list-item{
+    cursor: pointer;
+}
+.menu-list-item:hover{
+    font-weight: bold;
+}
+.menu-list-item.active{
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+.profile-picture{
+width: 32px;
+height: 32px;
+/***tam oturtmak için profili kullanıyoruz**/
+object-fit: cover;
+border-radius: 50%;
+}
+.profile-container{
+    display: flex;
+    align-items: center;
+    /***her bir etiketi birbiri arasında 20 px açacağız**/
+    column-gap: 20px;
+}
+.profile-text-container{
+    display: flex;
+    align-items: center;
+    /**ay ile yıldızın arasını birazcık açıyoruz***/
+    column-gap: 5px;
+    line-height: 1;
+}
+
+
+
+
+
+
+.toggle{
+    width: 40px;
+    background-color: white;
+    position: relative;
+    height: 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.toggle-ball{
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    right: 1px;
+    transition: .5s ease-in all;
+}
+.toggle-icon{
+    color: goldenrod;
+}
+
+
+/*! NAVBAR END */
+
+
+
+
+
+
+
+/*! SİDEBAR */
+.sidebar {
+  background-color: #000;
+  color: white;
+  height: 100%;
+  width: 50px;
+  display: flex;
+  /**alt alta sıralamak için**/
+  flex-direction: column;
+  padding-top: 60px;
+  /**aşağıdan yukarı simgeler arasında boşluk açıyor satır bırakır gibi***/
+  row-gap: 40px;
+  cursor: pointer;
+  /**sayfanın dikey kısmına en üste alt alta sabitleme***/
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+.sidebar i{
+    color: white;
+    font-size: 20px;
+
+}
+
+/*! SİDEBAR END */
+
+
+
+
+
+
+
+
+
+
+
+/*! FEATURED START */
+.content-wrapper{
+    /***sol ekrandan biraz sağ tarafa ittirmiş oluyoruz***/
+    margin-left: 50px;
+}
+
+.featured-content{
+    background: url("image/spiderman.jpg");
+    /**içten padding ile fotoyu biraz daha aşağı kaydırıyoruz***/
+    padding: 50px;
+    /**ekran boyutu kadar yer kaplar***/
+    height: calc(100vh - 160px);
+    background-size: 100% 100%;
+    
+}
+
+
+.featured-title{
+    width: 400px;
+}
+
+.featured-desc{
+    width: 500px;
+    /**hafif bir saydamlık veriyoruz 0.5 ile***/
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    margin: 30px 0;
+    color: black;
+}
+.feautred-buttons{
+    /***yanyana getiriyoruz buttonları**/
+    display: flex;
+    /**aralarını biraz mesafe yapıyoruz***/
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.feautred-buttons button{
+    padding: 10px 25px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    column-gap: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+/***daha fazla bilgi button infosnun rengibi solduruyoruz***/
+.feautred-buttons .info-button{
+    background-color: rgb(145, 142, 142, 0.5);
+    color: white;
+}
+/*! FEATURED END */
+
+
+/*! FİLTRE START */
+.movie-list-filter{
+    /***yukarıdan, sağdan, aşağıdan, soldan 50px***/
+    margin: 20px 0 20px 50px;
+    padding: 20px;
+}
+.movie-list-filter select{
+    background-color: black;
+    color: white;
+    padding: 7px 0;
+    width: 125px;
+}
+/*! FİLTRE END */
+
+
+
+/*! MOVİE LİST START */
+.movie-list-container{
+    /***bu margin left ile Popüler yazımız soldan hafif sağ kaydırıp aksiyon butonuna hizalıyoruz***/
+    margin-left: 70px;
+}
+.movie-list{
+    /***seçenek buttonumuz gidiyor şimdilik***/
+    list-style: none;
+    /**mini spiderman foto kısmını alt section dan mesafe vererek ayırıyoruz***/
+    padding: 0;
+    height: 300px;
+    /**yanyana getiriyoruz***/
+    display: flex;
+    align-items: center;
+    /**iki box'ın arasını açıyoruz***/
+    column-gap: 30px;
+    transform: translateX(0);
+    transition: 1s all ease-in-out;
+}
+.movie-list-wrapper{
+    /**aşağıda ekranı sağ sola kaydıran scroolu kapattık***/
+    overflow: hidden;
+    /**relative ekliyoruz ki aşağıda ki arrow okları için pozisyon yaratabilelim .arrow'a da absolute veriyoruz***/
+    position: relative;
+}
+
+.movie-item{
+    /***movie-item-title çalıştırmak için position:relative veriyoruz**/
+    position: relative;
+}
+/***bu sayede mouse fotoların üzerine tutunca isim ve iconlar gelecek**/
+.movie-item:hover .movie-item-title,
+.movie-item:hover .movie-item-buttons{
+    opacity: 1;
+
+}
+
+/***mouse üzerine yaklaşınca büyümeyi yapar görseli**/
+.movie-item:hover .movie-item-img{
+    transform: scale(1.2);
+    /***sağ taraftan ittirerek büyücek**/
+    margin: 0 30px;
+    /**büyürken görsel kararmaya başlıcak hafif***/
+    opacity: .5;
+}
+.movie-item-img{
+    /***resmimizi küçültürüyoruz**/
+    width: 270px;
+    height: 200px;
+    /**resmi daha iyi hale getiriyoruz***/
+    object-fit: cover;
+    transition: 1s all ease-in-out;
+}
+.movie-item-title{
+    /**spider-man yazısını küçük spiderman resmi üzerine koyacağız ve yazının arkasında renk olacak***/
+    background-color: rgb(40, 40, 40, 0.4);
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    /**absolute ve top çalışması için movie-item a relative veriyoruz***/
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    /***resim üzerinde ki yazıyı gizliyor***/
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}
+.movie-item-buttons{
+    /**spider-man yazısını küçük spiderman resmi üzerine koyacağız ve yazının arkasında renk olacak***/
+    background-color: rgb(40, 40, 40, 0.4);
+    padding: 0 10px;
+    font-size: 28px;
+    font-weight: bold;
+    /**absolute ve top çalışması için movie-item a relative veriyoruz***/
+    position: absolute;
+    bottom: 10%;
+    left: 50px;
+    /**iconların arasını değiştiriyoruz****/
+    display: flex;
+    column-gap: 20px;
+    opacity: 0;
+    
+    
+}
+.movie-item-buttons i{
+    /**iconlar üzerine gelince mouse el işareti olur**/
+    cursor: pointer;
+    /**hafif icon görünümünü solduruyoruz***/
+    opacity: .5;
+    font-size: 20px;
+    transition: .5 all ease;
+}
+.movie-item-buttons i:hover{
+    /**üzerine geldikçe iconlar parlıcak***/
+  opacity: 1;
+
+}
+
+.arrow{
+    width: 100px;
+    display: flex;
+    font-size: 120px;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    opacity: .5;
+    transition: .5s ease all;
+    cursor: pointer;
+}
+.arrow:hover{
+opacity: 1;
+}
+/*! MOVİE LİST END */
+
+
+/*! DARK MODE START */
+.container.active{
+    background-color: white;
+
+}
+.navbar.active{
+background-color: white;
+color: black;
+}
+.sidebar.active{
+    background-color: white;
+
+}
+.sidebar i.active{
+    color: black;
+}
+.movie-list-title.active{
+    color: black;
+}
+.toggle.active{
+    background-color: black;
+}
+.toggle-ball.active{
+    background-color: white;
+    transform: translateX(-20px);
+}
+.movie-list-filter select.active{
+    background-color: white;
+    color: black;
+}
+/*! DARK MODE END */
+
+
+
+
+
+
+/*! RESPONSİVE START */
+@media only screen and (max-width: 800px){
+    .menu-container{
+        display: none;
+    }
+    .featured-title{
+        width: 200px;
+    }
+    .featured-content{
+        height: 50vh;
+    }
+    .featured-desc{
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        max-width: 200px;
+        padding: 0;
+    }
+}
+/*! REPONSIVE END */
